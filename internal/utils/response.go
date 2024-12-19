@@ -25,7 +25,7 @@ func Success(c *gin.Context, status int, data interface{}) {
 func Error(c *gin.Context, status int, format string, args ...interface{}) {
 	err := errorResponse{
 		Code:    strings.ReplaceAll(strings.ToLower(http.StatusText(status)), " ", "_"),
-		Message: fmt.Sprintf(format, args),
+		Message: fmt.Sprintf(format),
 		Status:  status,
 	}
 	Response(c, status, err)
